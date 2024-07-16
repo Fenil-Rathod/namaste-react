@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RestrauntsCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { MAIN_RESTAURANT_API } from "../utils/constants";
 
 const Body = () => {
   const [ListofRestaurant, setListofRestaurant] = useState([]);
@@ -14,9 +15,7 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.2920844&lng=73.2410901&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
+      const response = await fetch( MAIN_RESTAURANT_API );
       const json = await response.json();
       setListofRestaurant(
         json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [] 
@@ -53,9 +52,9 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = ListofRestaurant.filter(
-              (res) => res.info.avgRating > 4.2
+              (res) => res.info.avgRating > 4.0
             );
-            setfilteredRestaurant(filteredList);
+              setfilteredRestaurant(filteredList);
             // console.log(filteredList);
           }}
         >

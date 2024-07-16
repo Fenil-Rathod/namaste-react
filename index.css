@@ -93,3 +93,13 @@
     border-radius: 20px;
     width: 100%;
 }
+
+.user-card{
+    border: 1px solid black;
+    width: 50%;
+}
+
+.userClass-card{
+    border: 1px solid black;
+    width: 50%;
+}
