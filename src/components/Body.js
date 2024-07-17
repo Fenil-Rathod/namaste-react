@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { MAIN_RESTAURANT_API } from "../utils/constants";
+import useOnlineStausCheck from "../utils/useOnlineStatusCheck";
 import RestrauntsCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { MAIN_RESTAURANT_API } from "../utils/constants";
 
 const Body = () => {
   const [ListofRestaurant, setListofRestaurant] = useState([]);
@@ -27,6 +28,13 @@ const Body = () => {
       console.error("Error fetching data:", error);
     }
   };
+
+  const onlineStatus = useOnlineStausCheck();
+  if(onlineStatus === false) 
+    return (
+      <h1> Oops looks like you are ofline now. </h1> 
+    );  
+
 
   return ListofRestaurant.length === 0 ? (
     <Shimmer />

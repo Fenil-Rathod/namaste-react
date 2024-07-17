@@ -1,5 +1,5 @@
-import UserClass from "./UserClass";
 import React from "react";
+import UserClass from "./UserClass";
 
 class About extends React.Component {
 
@@ -11,8 +11,8 @@ class About extends React.Component {
     render() {
         return (
             <div>
-                <h1> Contact Us </h1>
-                <h3> Hi this is contact us Page.</h3>
+                <h1> About Us </h1>
+                <h3> Hi this is About us Page.</h3>
                 {/* <User name = {"Fenil C Rathod (User)"} location = {"Babra"}/> */}
                 <UserClass name = {"Fenil C Rathod (User-Class)"} location = {"Bhiladi"}/>
             </div>

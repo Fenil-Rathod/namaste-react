@@ -1,5 +1,4 @@
 import { CDN_URL } from "../utils/constants";
-import resObj from "../utils/mockdata";
 
 const RestrauntsCard = (props) => {
     const { resData } = props;
