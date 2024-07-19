@@ -40,14 +40,14 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search  ">
-          <input type="text" className="search-box" 
+      <div className="filter flex h-20 items-center">
+        <div className="search m-4 p-4 ">
+          <input type="text" className="border border-solid border-black items-center" 
           value={searchText}
           onChange={(e) =>{
             setsearchText(e.target.value);
           }}/>
-          <button className="search-btn" 
+          <button className="px-4 py-2 bg-amber-100 m-4 rounded-lg items-center" 
           onClick={() =>
             {
             const filteredListRestaurant =  ListofRestaurant.filter((res) =>
@@ -56,20 +56,22 @@ const Body = () => {
             }
           }>Search</button>
         </div> 
+        <div className="search m-4 px-0 flex items-center"> 
         <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = ListofRestaurant.filter(
-              (res) => res.info.avgRating > 4.0
-            );
-              setfilteredRestaurant(filteredList);
-            // console.log(filteredList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+            className="filter-btn px-4 py-2 bg-amber-100 m-4 rounded-lg"
+            onClick={() => {
+              const filteredList = ListofRestaurant.filter(
+                (res) => res.info.avgRating > 4.0
+              );
+                setfilteredRestaurant(filteredList);
+              // console.log(filteredList);
+            }}
+          > 
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="res-container flex flex-wrap overflow-auto">
         {filteredRestaurant.map((restaurant) => (
           <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}> <RestrauntsCard resData={restaurant} /> </Link>
         ))}
