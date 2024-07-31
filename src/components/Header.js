@@ -1,6 +1,6 @@
-import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LOGO_URL } from "../utils/constants";
 import useOnlineStausCheck from "../utils/useOnlineStatusCheck";
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
   const [btnName, setbtnName] = useState("Login");
   const onlineStatus = useOnlineStausCheck();
     return (
-      <div className="flex justify-between bg-pink-100 h-24">
+      <div className="flex justify-between bg-green-100 h-24 shadow-lg">
         <div className="logo-container">
           <img
             className="w-40 overflow-auto h-24" 

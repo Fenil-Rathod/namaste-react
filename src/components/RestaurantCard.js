@@ -6,18 +6,38 @@ const RestrauntsCard = (props) => {
   
   
     return (
-      <div className="res-card m-4 p-4 w-[250px] rounded-lg overflow-auto py-5 bg-gray-100 hover:bg-gray-200">
+      <div className="res-card m-4 rounded-lg overflow-hidden duration-100 hover:scale-95">
         <img
-          className="res-logo rounded-lg" 
+          className="rounded-lg h-44 w-full " 
           alt="res-logo"
           src={CDN_URL + cloudinaryImageId }
         />
-        <h3 className="font-bold text-lg">{name}</h3>
-        <h4>{cuisines.join(", ")}</h4>
-        <h4>{avgRating}</h4>
-        <h4>{resData.info.sla.deliveryTime}</h4>
+        <h3 className="font-bold text-lg pl-2">{name}</h3>
+        <div className="flex space-x-4 pl-2">
+          <div>
+            <h4>{avgRating}</h4>
+          </div>
+          <div>
+            <div>{resData.info.sla.deliveryTime}</div>
+          </div>
+        </div>
+        <h4 className="pl-2">{cuisines.join(", ")}</h4>
       </div>
     );
   };
+  
+      // Higher order function.
+      // Returning a promotion if Restaurant is Veg
+  export const ResIsVeg = (RestaurantCard) => {
+    
+      return (props) => {
+        return(
+          <div className="duration-100 hover:scale-95">
+            <label className="bg-green-300 text-white ml-4 p-2 w-10 rounded-lg absolute z-10"> Veg </label>
+            <RestrauntsCard {...props}/>
+          </div>
+        )
+      };
+  }
 
   export default RestrauntsCard;

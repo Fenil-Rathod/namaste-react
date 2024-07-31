@@ -1,12 +1,13 @@
-import React,{lazy, Suspense}from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
-import Body from "./components/Body";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./components/About";
+import Body from "./components/Body";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import Header from "./components/Header";
 import RestaurantMenu from "./components/RestaurantMenu";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -37,7 +38,7 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/Grocery",
+        path: "/grocery",
         element: <Suspense fallback = { <h1> This is fallback function called.</h1>}> <Grocery /> </Suspense> ,
       },
       {
