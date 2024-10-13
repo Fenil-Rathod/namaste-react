@@ -17,7 +17,7 @@ class UserClass extends React.Component {
             this.setState({
                 userInfo: json,
             })
-            console.log(json);
+            
         }
     render ()
     {
@@ -27,7 +27,7 @@ class UserClass extends React.Component {
                 <img src= {avatar_url}></img>
                 <h2> Name : {name} </h2>
                 <h3> Location : {location} </h3>
-                <h3> Contact : @fenil.gmail.com </h3>
+                <h3> Contact : @fenilcrathod007.gmail.com </h3>
             </div>
             );
         }

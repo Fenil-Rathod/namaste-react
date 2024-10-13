@@ -1,7 +1,14 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../reduxStore/cartSlice";
 import { CDN_URL } from "../utils/constants";
 
-const ItemList = ({items}) => {
+const ItemList = ({items}) =>   {
+    const dispatch = useDispatch();
 
+    const handleAddItem = (item) => {
+    //Dispatch An Action (Redux)
+    dispatch(addItem(item)); 
+}
     return (
         <div>
                 {items.map((item) => (
@@ -19,7 +26,10 @@ const ItemList = ({items}) => {
                         </div>
                         <div className="w-3/12 mb-12" >
                             <div className="absolute">
-                                <button className="bg-white hover:bg-gray-200 border shadow-lg text-[#1ba672] rounded-md mx-9 mt-28 w-32 h-10 font-bold text-lg"> ADD </button>
+                                <button className="bg-white hover:bg-gray-200 border shadow-lg text-[#1ba672] rounded-md mx-9 mt-28 w-32 h-10 font-bold text-lg"
+                                onClick={() => handleAddItem(item)}> 
+                                ADD 
+                                </button>
                                 <br/>
                                 <div className="mx-14 text-sm text-gray-500"> Costomisable </div>
                             </div>

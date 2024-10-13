@@ -1,10 +1,11 @@
 import ItemList from "./ItemList1";
 
-const RestaurantCategories = ({data, showItem, setShowindex, setShowItem}) => {
+const RestaurantCategories = ({data, showItem, setShowindex }) => {
 
     const expandAccodian = () => {
         setShowindex();
-        setShowItem();
+        // setShowItem();
+        // setTempIndex();
     }
     return(
         <div>

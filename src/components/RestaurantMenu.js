@@ -8,7 +8,7 @@ const RestaurantMenu = () => {
 
     const {resId} = useParams();
     const [showIndex, setShowindex] = useState();
-    const [showItem, setShowItem] = useState();
+    const [showItem, setShowItem] = useState(true);
     const resInfo = UseRestaurantMenu(resId);
 
     if(resInfo === null) return <Shimmer />;
@@ -26,7 +26,7 @@ const RestaurantMenu = () => {
                 <RestaurantCategories 
                 key={categorie?.card?.card?.title} 
                 data = {categorie?.card?.card}
-                showItem={index === showIndex ? true : false}
+                showItem={index === showIndex ? showItem : false}
                 setShowindex= {() => setShowindex(index)}
                 setShowItem={() => setShowItem(!showItem)}
                 />

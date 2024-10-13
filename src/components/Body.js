@@ -46,7 +46,8 @@ const Body = () => {
     <div className="body">
       <div className="filter flex h-20 items-center ml-44">
         <div className="search m-4 p-4 ">
-          <input type="text" className="border border-solid border-black items-center" 
+          <input type="text" className="border border-transparent border-b-black  items-center px-2 focus:{border border-transparent border-b-black}"
+         
           value={searchText}
           onChange={(e) =>{
             setsearchText(e.target.value);
@@ -69,7 +70,7 @@ const Body = () => {
             className="filter-btn px-4 py-2 bg-amber-100 m-4 rounded-lg"
             onClick={() => {
               const filteredList = ListofRestaurant.filter(
-                (res) => res.info.avgRating > 4.5 
+                (res) => res.info.avgRating > 4.3
               );
                 setfilteredRestaurant(filteredList);
             }}
@@ -79,7 +80,7 @@ const Body = () => {
 
         </div>
       </div>
-      <div className="flex flex-row min-h-screen justify-center items-center w-fit"> 
+      <div className="flex flex-row min-h-screen justify-center items-center w-full ml-10"> 
         <div className="w-9/12">
           <div className="res-container grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 gap-4 w-auto h-auto">
                 {filteredRestaurant.map((restaurant) => (
